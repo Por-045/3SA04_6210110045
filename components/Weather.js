@@ -5,10 +5,10 @@ import Forecast from './Forecast'
 export default function Weather(props){
     
     const [forecastInfo, setForecastInfo] = useState({
-        name: '-',
-        country: '-',
-        main: '-',
-        description: '-',
+        name: 'loading...',
+        country: 'loading...',
+        main: 'loading...',
+        description: 'loading...',
         temp: 0,
         feel: 0,
         tempMax: 0,
@@ -61,8 +61,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.3)'
     },
     baseText: {
+        
         paddingTop: 20,
-        fontSize: 25
+        fontSize: 30
     }
 })
 

@@ -5,9 +5,14 @@ import Forecast from './Forecast'
 export default function Weather(props){
     
     const [forecastInfo, setForecastInfo] = useState({
+        name: '-',
+        country: '-',
         main: '-',
         description: '-',
-        temp: 0
+        temp: 0,
+        feel: 0,
+        tempMax: 0,
+        tempMin: 0
     })
     
     useEffect(() => {
@@ -17,9 +22,15 @@ export default function Weather(props){
             .then((response) => response.json())
             .then((json) => {
                 setForecastInfo({
+                    name: json.name,
+                    country: json.sys.country,
                     main: json.weather[0].main,
                     description: json.weather[0].description,
-                    temp: json.main.temp
+                    temp: json.main.temp,
+                    feel: json.main.feels_like,
+                    tempMax: json.main.temp_max,
+                    tempMin: json.main.temp_min
+                    
                 });
             })
             .catch((error) => {
